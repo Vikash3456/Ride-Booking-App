@@ -3,7 +3,7 @@ dotenv.config()
 const cors=require('cors')
 const express=require('express')
 const app= express() 
-const cookieParser=require('cookie-parser')
+const cookieParser=require('cookie-parser') // one of the middleware that interact cookie in server
 const connectToDb=require('./db/db')
 const userRoutes=require('./router/user.router')
 connectToDb();

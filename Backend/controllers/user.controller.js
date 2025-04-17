@@ -1,7 +1,7 @@
 const userModel=require('../models/user.model')
 const userServices=require('../services/user.service')
 const {validationResult}=require('express-validator')
-
+const blacklistToken=require('../models/blacklistToken.model')
 ///create the logic  to create user
 module.exports.RegisterUser=async(req,res,next)=>{
     const errors=validationResult(req)// if error is coming 
@@ -35,7 +35,7 @@ module.exports.loginUser=async (req,res,next)=>{
     
     const {email,password}=req.body
 
-    const user= await userModel.findOne({email}).select('+password');
+    const user= await userModel.findOne({email}).select('+password'); // password lete ana 
     
     if(!user){
         return res.status(400).json({message:'Invaild email or password '})
@@ -47,7 +47,7 @@ module.exports.loginUser=async (req,res,next)=>{
  }
 
  const token =user.generateAuthToken();
-
+res.cookie('token', token)
  res.status(200).json({token,user});
 
 }
@@ -55,4 +55,15 @@ module.exports.loginUser=async (req,res,next)=>{
 module.exports.getUserProfile= async( req,res,next)=>{
     //profile only see to user loged in that why use middle ware
     return res.status(200).json(req.user);
+}
+
+
+module.exports.logoutUser=async(req,res,next)=>{
+    res.clearCookies('token')
+
+    const token =req.cookies.token || req.headers.authorization.split(' ')[ 1 ];    //middle ware check token hai ki nahi 
+    
+    await blacklistToken.create({token });
+
+    return res.status(200).json({message:'Logged Out '})
 }
