@@ -9,20 +9,22 @@ module.exports.RegisterUser=async(req,res,next)=>{
         // error are comming
         return res.status(400).json({errors:errors.array()})
     }
-    const{fullname,lastname,email,password}=req.body;
 
-    const hashpassword=await userModel.hashpassword(password)
+    console.log(req.body) 
+    const{fullname,email,password}=req.body;
+
+    const hashedpassword=await userModel.hashpassword(password)
 
     const user =await userServices.createUser({
-        firstname:fullname,
-        lastname:
+        firstname:fullname.firstname,
+        lastname:fullname.lastname,
         email,
-        password:hashpassword
+        password:hashedpassword
     })
     // genterate token
 
-    const token =user.genrateAuthToken();
-    res.status(2001).json({token,user});  //only two things are go from back to front 
+    const token =user.generateAuthToken();
+      res.status(201).json({token,user});  //only two things are go from back to front 
 }
 
 module.exports.loginUser=async (req,res,next)=>{
@@ -31,7 +33,7 @@ module.exports.loginUser=async (req,res,next)=>{
         return res.status(400).json({errors:errors.array()});
     }
     
-    const {emai,password}=req.body
+    const {email,password}=req.body
 
     const user= await userModel.findOne({email}).select('+password');
     
@@ -44,7 +46,7 @@ module.exports.loginUser=async (req,res,next)=>{
     return res.status(401).json({message:'Invaild email or password '})
  }
 
- const token =user.genrateAuthToken(token,user)
+ const token =user.generateAuthToken();
 
  res.status(200).json({token,user});
 
