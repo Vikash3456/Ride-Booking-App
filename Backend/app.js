@@ -6,6 +6,7 @@ const app= express()
 const cookieParser=require('cookie-parser') // one of the middleware that interact cookie in server
 const connectToDb=require('./db/db')
 const userRoutes=require('./router/user.router')
+const captainRoutes=require('./router/captain.router')
 connectToDb();
 
 
@@ -20,5 +21,8 @@ app.get('/',(req,res)=>{
 });
 
 app.use('/user',userRoutes)
+
+app.use('/captain',captainRoutes)
+
 
 module.exports=app;

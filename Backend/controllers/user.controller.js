@@ -13,6 +13,11 @@ module.exports.RegisterUser=async(req,res,next)=>{
     console.log(req.body) 
     const{fullname,email,password}=req.body;
 
+    const isUserAlreadyExist=await captainModel.findOne({email});     
+
+    if(isUserAlreadyExist){
+     return res.status(400).json({message:'user already exist '})
+    }
     const hashedpassword=await userModel.hashpassword(password)
 
     const user =await userServices.createUser({
@@ -59,11 +64,11 @@ module.exports.getUserProfile= async( req,res,next)=>{
 
 
 module.exports.logoutUser=async(req,res,next)=>{
-    res.clearCookies('token')
+    res.clearCookie('token')
 
     const token =req.cookies.token || req.headers.authorization.split(' ')[ 1 ];    //middle ware check token hai ki nahi 
     
-    await blacklistToken.create({token });
+    await blacklistToken.create({token});
 
     return res.status(200).json({message:'Logged Out '})
 }
