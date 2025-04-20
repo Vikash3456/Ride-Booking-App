@@ -22,7 +22,7 @@ app.get('/',(req,res)=>{
 
 app.use('/user',userRoutes)
 
-app.use('/captain',captainRoutes)
+app.use('/captains',captainRoutes)
 
 
 module.exports=app;
