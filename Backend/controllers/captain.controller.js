@@ -1,6 +1,6 @@
 const captainModel=require('../models/captain.model')
 const captainService=require('../services/captain.service')
-
+const { validationResult } = require('express-validator')
 
 module.exports.registerCaptain =async(req,res,next)=>{
       const errors=validationResult(req)// if error is coming 
@@ -18,7 +18,7 @@ module.exports.registerCaptain =async(req,res,next)=>{
         return res.status(400).json({message:'captain already exist '})
        }
 
-        const hashedpassword =await captainModel.hashedpassword(password);
+        const hashedpassword =await captainModel.hashPassword(password);
 
         const captain =await captainService.createCaptain({
             firstname:fullname.firstname,
