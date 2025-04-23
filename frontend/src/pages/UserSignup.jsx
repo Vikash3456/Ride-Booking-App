@@ -44,7 +44,7 @@ const [userdata, setuserData] = useState({})
          className='bg-[#eeeee]  rounded px-4 py-2 w-1/2 border text-base placeholder:text-sm'
          type="text" 
          placeholder='first name'
-         value={firstname}
+         value={firstName}
          onChange={(e)=>{
           setFirstname(e.target.value)
          }}
@@ -55,7 +55,7 @@ const [userdata, setuserData] = useState({})
          className='bg-[#eeeee]  rounded px-4 py-2 border w-1/2  text-lg placeholder:text-base'
          type="text" 
          placeholder='last name' 
-         value={lastname}
+         value={lastName}
          onChange={(e)=>{
           setLastname(e.target.value)
          }}

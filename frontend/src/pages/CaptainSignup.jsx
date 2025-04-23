@@ -33,14 +33,14 @@ const CaptainSignup = () => {
          submitHandler(e)
        }} action="">
         
-        <h3 className=' text-lg font-medium mb-2'>What's your name</h3>
+        <h3 className=' text-lg font-medium mb-2'>What's your Captain's name</h3>
         <div className='flex  gap-4 mb-5'>
         <input  
          required
          className='bg-[#eeeee]  rounded px-4 py-2 w-1/2 border text-base placeholder:text-sm'
          type="text" 
          placeholder='first name'
-         value={firstname}
+         value={firstName}
          onChange={(e)=>{
           setFirstname(e.target.value)
          }}
@@ -51,7 +51,7 @@ const CaptainSignup = () => {
          className='bg-[#eeeee]  rounded px-4 py-2 border w-1/2  text-lg placeholder:text-base'
          type="text" 
          placeholder='last name' 
-         value={lastname}
+         value={lastName}
          onChange={(e)=>{
           setLastname(e.target.value)
          }}
@@ -59,7 +59,7 @@ const CaptainSignup = () => {
     </div>
 
     
-         <h3 className=' text-lg font-medium mb-2'>What's your email</h3>
+         <h3 className=' text-lg font-medium mb-2'>What's your Captain's email</h3>
          <input  
          required
          className='bg-[#eeeee] mb-6 rounded px-4 py-2 border w-full text-lg placeholder:text-base'
