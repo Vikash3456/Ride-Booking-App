@@ -7,7 +7,7 @@ const Home = () => {
       <img className='w-16 ml-8 'src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoid2VhcmVcL2ZpbGVcLzhGbTh4cU5SZGZUVjUxYVh3bnEyLnN2ZyJ9:weare:F1cOF9Bps96cMy7r9Y2d7affBYsDeiDoIHfqZrbcxAw?width=1200&height=417" />
       <div className=' py-4 pb-7  px-4 bg-white' > 
             <h2 className=' text-3xl font-bold text-center'>Get Started with Uber</h2>  
-            <Link to='/login' className='flex items-center justify-center text-white bg-black rounded mt-5 py-3 '>Continue</Link>
+            <Link to='/login' className='flex items-center justify-center text-white bg-black rounded-lg mt-5 py-3 '>Continue</Link>
       </div>
     </div>
   )

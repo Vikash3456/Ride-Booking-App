@@ -46,12 +46,12 @@ const UserLogin = () => {
         type="password" 
         placeholder='Password' />
 
-        <button  className='bg-[#111] text-white font-semibold mb-2 rounded px-4 py-2  w-full text-lg placeholder:text-base'>login</button>
+        <button  className='bg-[#111] text-white font-semibold mb-2 rounded-lg px-4 py-2  w-full text-lg placeholder:text-base'>login</button>
 
         <p className='text-center'>New here? <Link  to='/signup'className='text-blue-600'>Create new Account</Link></p>
       </form>
    </div>
-   <Link to='/captain-login' className='bg-[#10b461] flex  justify-center items-center text-white font-semibold mb-5 rounded px-4 py-2  w-full text-lg placeholder:text-base'>Sign as Captain</Link>
+   <Link to='/captain-login' className='bg-[#10b461] flex  justify-center items-center text-white font-semibold mb-5 rounded-lg px-4 py-2  w-full text-lg placeholder:text-base'>Sign as Captain</Link>
 
     </div>
   )
