@@ -89,7 +89,7 @@ const [userdata, setuserData] = useState({})
  
          <button  className='bg-[#111] text-white font-semibold mb-2 rounded px-4 py-2  w-full text-lg placeholder:text-base'>Create Account</button>
  
-         <p className='text-center'>Already have account? <Link  to='/login'className='text-blue-600'>Login here</Link></p>
+         <p className='text-center'>Already have account? <Link  to='/login'className='text-blue-600'>Login Here</Link></p>
        </form>
     </div>
    <p className='text-[10px] leading-tight'>By proceeding, you consent to get calls. WhatsApp or SMS
