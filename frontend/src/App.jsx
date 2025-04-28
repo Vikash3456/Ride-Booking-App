@@ -9,8 +9,9 @@ import UserLogout from './pages/UserLogout'
 import {Routes,Route} from 'react-router-dom'
 import UserContext, { UserDataContext } from './context/UserContext'
 import Start from './pages/Start'
-import UserProtectedWrapper from './pages/userProtectedWrapper'
 import CaptainHome from './pages/CaptainHome'
+import UserProtectedWrapper from './pages/UserProtectedWrapper'
+import CaptainProtectedWrapper from './pages/CaptainProtectWrapper'
 const App = () => {
 
   return (
@@ -31,7 +32,11 @@ const App = () => {
   <UserLogout/>
   </UserProtectedWrapper>}/>
 
-  <Route path='/captain-home' element={<CaptainHome/>}/>
+  <Route path='captain-home' element={
+<CaptainProtectedWrapper>
+  <CaptainHome/>
+</CaptainProtectedWrapper>    
+    }/>
 </Routes>
     </div>
   )

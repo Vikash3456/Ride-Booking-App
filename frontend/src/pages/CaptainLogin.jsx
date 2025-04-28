@@ -4,7 +4,7 @@ import axios from 'axios'
 import { CaptainDataContext } from '../context/CaptainContex'
 const CaptainLogin = () => {
   const navigate=useNavigate()
-    const [email, setEmail] = useState(' ')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('') // two way binding
     
     const {captain, setCaptain} =React.useContext(CaptainDataContext)
@@ -14,7 +14,7 @@ const CaptainLogin = () => {
           email:email,
           password:password
         }
-      const response=await axios.post(`${import.meta.env.VITE_BASE_URL}/captains/register`,CaptainData)
+      const response=await axios.post(`${import.meta.env.VITE_BASE_URL}/captains/login`,CaptainData)
 
 
       if(response.status===200){
