@@ -22,7 +22,7 @@ const {user,setUser}=React.useContext (UserDataContext)
       firstname:firstName,
       lastname:lastName,
     },
-    email:email,
+    email:email,  
     password:password
    })
 
@@ -31,6 +31,8 @@ const {user,setUser}=React.useContext (UserDataContext)
    if(  response.status===201){ 
     const data=response.data
     setUser(data.user)
+
+    localStorage.setItem('token',data.token) // depend on token 
     navigate('/home')
    }
 
