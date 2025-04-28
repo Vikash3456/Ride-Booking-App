@@ -14,6 +14,7 @@ const [userdata, setuserData] = useState({})
  
 const navigate=useNavigate( )
 const {user,setUser}=React.useContext (UserDataContext)
+
  const submitHandler= async (e)=>{
    e.preventDefault()
    const newUser=({
@@ -38,6 +39,8 @@ const {user,setUser}=React.useContext (UserDataContext)
    setFirstname('')
    setLastname('')
    setPassword('')
+
+   
  }
 
 
